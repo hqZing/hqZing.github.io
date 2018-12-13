@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title>niugfrsghtenxliot</title>
+      <link href="/2018/12/13/niugfrsghtenxliot/"/>
+      <url>/2018/12/13/niugfrsghtenxliot/</url>
+      
+        <content type="html"><![CDATA[<h1 id="518自制UML复习资料"><a href="#518自制UML复习资料" class="headerlink" title="518自制UML复习资料"></a>518自制UML复习资料</h1><h4 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h4><h6 id="UML五大类模型、十大模型图"><a href="#UML五大类模型、十大模型图" class="headerlink" title="UML五大类模型、十大模型图"></a>UML五大类模型、十大模型图</h6><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">[&#123;</span><br><span class="line"><span class="attr">"静态模型"</span>: [&#123;</span><br><span class="line"><span class="attr">"用例图"</span>: [&#123;</span><br><span class="line"><span class="attr">"用例图"</span>: <span class="string">"展示系统外部的各类执行者与系统提供的各种用例之间的关系"</span></span><br><span class="line">&#125;]</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line"><span class="attr">"静态图"</span>: [&#123;</span><br><span class="line"><span class="attr">"类图"</span>: <span class="string">"展示系统中类的静态结构(类是指具有相同属性和行为的对象，类图用来描述系统中各种类之间的静态结构)"</span></span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line"><span class="attr">"对象图"</span>: <span class="string">"是类图的一种实例化图(对象图是对类图的一种实例化)"</span></span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line"><span class="attr">"包图"</span>: <span class="string">"是包和类组成的，表示包与包之间的关系，包图描述系统的分层结构"</span></span><br><span class="line">&#125;</span><br><span class="line">]</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line"><span class="attr">"实现图"</span>: [&#123;</span><br><span class="line"><span class="attr">"组件图"</span>: <span class="string">"展示程序代码的物理结构(描述程序代码的组织结构，各种构件之间的依赖关系)"</span></span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line"><span class="attr">"配置图"</span>: <span class="string">"展示软件在硬件环境中(特别是在分布式及网络环境中)的配置关系(系统中硬件和软件的物理配置情况和系统体系结构)"</span></span><br><span class="line">&#125;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br><span class="line">]</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line"><span class="attr">"动态模型"</span>: [&#123;</span><br><span class="line"><span class="attr">"交互图"</span>: [&#123;</span><br><span class="line"><span class="attr">"时序图"</span>: <span class="string">"展示对象之间的一种动态协作关系(一组对象组成，随时间推移对象之间交换消息的过程，突出时间关系)"</span></span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line"><span class="attr">"协作图"</span>: <span class="string">"从另一个角度展示对象之间的动态协作关系(对象间动态协作关系，突出消息收发关系)"</span></span><br><span class="line">&#125;</span><br><span class="line">]</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line"><span class="attr">"行为图"</span>: [&#123;</span><br><span class="line"><span class="attr">"状态图"</span>: <span class="string">"描述一类对象具有的所有可能的状态及其转移关系(它展示对象所具有的所有可能的状态以及特定事件发生时状态的转移情况)"</span></span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line"><span class="attr">"活动图"</span>: <span class="string">"展示系统中各种活动的执行流程(各种活动的执行顺序、执行流程)"</span></span><br><span class="line">&#125;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure><p>###### </p><p>Q-&gt;什么是UML：</p><p>A-&gt;统一建模语言是一个通用的面向对象建模语言，它是通过可视化处理描述软件功能需求和设计软件系统的文档化产品。UML在现代软件工程中占有核心的地位。</p><h4 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h4><h6 id="事物"><a href="#事物" class="headerlink" title="事物"></a>事物</h6><p>Q-&gt;事物的定义：</p><p>A-&gt;</p><p>事-&gt;指自然界和社会中的现象和活动。物-&gt;人以外具体的东西。</p><p>事物-&gt;指客观存在的一切事情和物体。在UML中对模型中最具有代表性的成务的抽象。</p><p>Q-&gt;四种事物是什么：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[&#123;</span><br><span class="line"><span class="attr">"结构事物"</span>: [<span class="string">"用例"</span>, <span class="string">"类"</span>, <span class="string">"接口"</span>, <span class="string">"协作"</span>, <span class="string">"活动类"</span>, <span class="string">"组件"</span>, <span class="string">"节点"</span>]</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line"><span class="attr">"行为事物"</span>: [&#123;<span class="attr">"交互"</span>:<span class="string">"在计算机中，交互为参与活动的对象可以相互交流的活动"</span>&#125;, &#123;<span class="attr">"状态机"</span>:<span class="string">"对象的一个或多个状态的集合"</span>&#125;]</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line"><span class="attr">"组织/分组事物"</span>: [<span class="string">"包"</span>]</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line"><span class="attr">"辅助/注释事物"</span>: [<span class="string">"注释"</span>]</span><br><span class="line">&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure><h6 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h6><p>Q-&gt;关系的定义：</p><p>A-&gt;人或事物之间的相互作用，相互影响的状态，在UML中，关系把事或物结合起来。</p><p>Q-&gt;UML的四种关系：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[&#123;</span><br><span class="line"><span class="attr">"关联关系"</span>: [<span class="string">"双向关联"</span>, <span class="string">"有向关联"</span>, <span class="string">"聚集关联"</span>, <span class="string">"组成关联"</span>]</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line"><span class="attr">"依赖关系"</span>: []</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line"><span class="attr">"泛化关系"</span>: []</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line"><span class="attr">"实际关系"</span>: []</span><br><span class="line">&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure><h6 id="图"><a href="#图" class="headerlink" title="图"></a>图</h6><p>用绘图表示的形象。在UML中，图聚集了相关的事物。</p><h6 id="问题求解"><a href="#问题求解" class="headerlink" title="问题求解"></a>问题求解</h6><p>1.模型（离散、数学公式） </p><p>2.算法</p><p>3.代码</p><h4 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h4><h6 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h6><p>Q-&gt;什么是类：</p><p>A-&gt;对一组具有相同属性、操作、关系和语义客观对象的描述</p><p>Q-&gt;什么是类图：</p><p>类图是描述类的内部结构以及类之间的关系和静态结构图</p><h6 id="对象和对象图"><a href="#对象和对象图" class="headerlink" title="对象和对象图"></a>对象和对象图</h6><p>Q-&gt;什么是对象：</p><p>A-&gt;类的实例</p><p>Q-&gt;什么是对象图：</p><p>A-&gt;描述一组对象在某一时刻相互关系的图</p><p>Q-&gt;什么是包：</p><p>A-&gt;包是对模型元素进行分组的机制，它将模型元素划分为若干子集，包含：包；类；接口；其他</p><p>Q-&gt;什么是包图</p><p>A-&gt;由包和包之间的关系构成，它是维护和控制系统总体结构的重要建模工具</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    <entry>
+      <title>本博客今天起投入使用</title>
+      <link href="/2018/12/04/%E6%9C%AC%E5%8D%9A%E5%AE%A2%E4%BB%8A%E5%A4%A9%E8%B5%B7%E6%8A%95%E5%85%A5%E4%BD%BF%E7%94%A8/"/>
+      <url>/2018/12/04/%E6%9C%AC%E5%8D%9A%E5%AE%A2%E4%BB%8A%E5%A4%A9%E8%B5%B7%E6%8A%95%E5%85%A5%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<p>在未来的一段时间内，我将会把学习和项目中遇到的技术问题及其解决方案撰写成文发到这里，与各位程序员共同分享，也作为我自己的一个笔记。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> test </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 标签1 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+  
+  
+    
+    <entry>
+      <title>时间轴</title>
+      <link href="/timeline/index.html"/>
+      <url>/timeline/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    <entry>
+      <title>推荐链接</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    <entry>
+      <title>标签云</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+  
+</search>
