@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>安装thrift并使用python3驱动Hbase</title>
+      <link href="/2019/02/11/3/"/>
+      <url>/2019/02/11/3/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>做比赛的过程中需要用到python去驱动hadoop的那一些东西，要安装thrift。因为按照版本不同等等原因，按照网上别人博客的教程配置并不能成功。经过自己处理问题之后将我自己的安装过程记录下来，作为自己的笔记以及让队伍其他成员使用。</p><p>这份博客可以有效解决网上比较常见的python3无法驱动hbase-thrift的问题（直接pip3 install hbase-thrift，就马上使用的话，在import的时候会爆出语法错误，因为python目录下site-packages/hbase/Hbase.py这个文件默认是用python2语法编写的，不兼容python3 ）。</p><p>网上也有人上传了修改过的Hbase.py文件，但是要么就是收钱，要么就是链接失效，甚至千辛万苦弄到手往往还不能成功跑起来。</p><p>我找到的解决方案就是自己编译安装thrift这个软件，然后用thrift在自己本机上重新生成一遍Hbase.py。这样做可以完美的在自己机子上用python3驱动Hbase。</p><p>如果有不是很熟悉hadoop的新人看到我这篇文章的话，请注意，我自己安装的thrift和Hbase安装文件夹下面自带的thrift服务是不一样的。前者是用来给客户端生成映射文件，后者是用来开启网络服务的。可以简单的认为一个工作在客户端，一个工作在服务端。如果只需要使用python2的话，不需要前者也可以正常驱动Hbase。因为pip下载下来的映射文件本身就是正确的。</p><h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><p>这里使用的是ubuntu16.04虚拟机，崭新的系统，除了安装hadoop、Hbase、Hive、mysql以外并未额外安装其他软件</p><p>hadoop安装目录：/usr/local/hadoop</p><p>Hbase安装目录：/usr/local/hbase</p><p>Hbase源码包解压后的路径：/home/hadoop/Desktop/hbase-2.0.4</p><p>虚拟机用户名：hadoop</p><p>从官网download板块那里下载文件，我用的是0.12.0版本 <a href="http://thrift.apache.org" target="_blank" rel="noopener">apache thrift官网</a></p><h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><p>首先按照官网的最新文档进行依赖的安装，网上那些教程安装的东西不太一样，在编译0.12.0版本thrift的时候会报错说缺东西<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install automake bison flex g++ git libboost-all-dev libevent-dev libssl-dev libtool make pkg-config</span><br></pre></td></tr></table></figure></p><p>因为需要设置python支持（废话，不设置的话，怎么用python驱动），如果不安装这些，在编译安装的时候会提示找不到python.h</p><p>官网上说，如果要添加python支持，需要装上这些。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-all python-all-dev python-all-dbg</span><br></pre></td></tr></table></figure><p>实际上在我的ubuntu上面，光是执行上面这条并不够，还要再加一句。否则还是会爆红，说找不到python.h</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install  python3.5-dev</span><br></pre></td></tr></table></figure><p>如果已经装过python2和python3对应的pip，那么上面这两步似乎可以省略，会提示这些软件已经存在了</p><p>安装完依赖之后主要检查一下这两个目录里面有没有 python.h这个文件（两个目录都要有）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls /usr/include/python2.7</span><br><span class="line">ls /usr/include/python3.5</span><br></pre></td></tr></table></figure></p><h2 id="编译安装软件"><a href="#编译安装软件" class="headerlink" title="编译安装软件"></a>编译安装软件</h2><p>接下来是正常的软件编译安装过程，贴这个代码主要是让你们看看configure参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf thrift-0.12.0.tar.gz </span><br><span class="line"></span><br><span class="line">cd thrift-0.12.0/</span><br><span class="line"></span><br><span class="line">./configure --prefix=/usr/local/thrift --with-cpp --with-boost --with-python --without-csharp --with-java --without-erlang --without-perl --with-php --without-php_extension --without-ruby --without-haskell --without-go</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p><p>正常情况下应该不会爆红的，如果编译或者安装的时候爆红，自行想办法处理</p><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>安装pip，并使用pip安装两个模块，其中最容易出问题的是hbase-thrift</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3-pip</span><br><span class="line">pip3 install thrift</span><br><span class="line">pip3 install hbase-thrift</span><br></pre></td></tr></table></figure><p>解压hadoop的源码包<br>我是解压到了这个目录<br><img src="http://120.24.1.93/blogimg/3/547_0.png" alt="547_0.png"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Desktop/hbase-2.0.4/hbase-thrift/src/main/resources/org</span><br><span class="line">/apache/hadoop/hbase/thrift</span><br><span class="line"></span><br><span class="line">/usr/local/thrift/bin/thrift -gen py Hbase.thrift</span><br></pre></td></tr></table></figure><p>会得到一个gen-py文件夹，里面有个文件夹叫hbase，用它去替换你pip3安装的那个hbase-thrift里面的hbase文件夹</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rm -r  /home/hadoop/.local/lib/python3.5/site-packages/hbase</span><br><span class="line"></span><br><span class="line">cp -r ~/Desktop/hbase-2.0.4/hbase-thrift/src/main/resources/</span><br><span class="line">org/apache/hadoop/hbase/thrift/gen-py/hbase /home/hadoop/.local/lib/python3.5/site-packages/</span><br></pre></td></tr></table></figure><p>如下图所示，尝试导入一下这个库，import成功就没问题了<br><img src="http://120.24.1.93/blogimg/3/549_0.png" alt="549_0.png"></p><p>尝试用python驱动一下看看，在这之前要先把hbase启动起来</p><p>启动hadoop<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-all.sh</span><br></pre></td></tr></table></figure></p><p>启动Hbase<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-hbase.sh</span><br></pre></td></tr></table></figure></p><p>启动Hbase的thrift服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hbase-daemon.sh start thrift</span><br></pre></td></tr></table></figure></p><p>上面这几个脚本我是添加过环境变量的，使用的时候不需要加路径，如果没添加环境变量，请自行根据安装目录补全路径来运行，如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/hadoop/sbin/start-all.sh</span><br><span class="line">/usr/local/hbase/bin/start-hbase.sh</span><br><span class="line">/usr/local/hbase/bin/hbase-daemon.sh start thrift</span><br></pre></td></tr></table></figure><p>所有服务都启动完成之后，编写一段python代码，运行它</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">from thrift.transport import TSocket,TTransport</span><br><span class="line">from thrift.protocol import TBinaryProtocol</span><br><span class="line">from hbase import Hbase</span><br><span class="line"></span><br><span class="line"># thrift默认端口是9090</span><br><span class="line">socket = TSocket.TSocket(&apos;127.0.0.1&apos;,9090)</span><br><span class="line">socket.setTimeout(5000)</span><br><span class="line"></span><br><span class="line">transport = TTransport.TBufferedTransport(socket)</span><br><span class="line">protocol = TBinaryProtocol.TBinaryProtocol(transport)</span><br><span class="line"></span><br><span class="line">client = Hbase.Client(protocol)</span><br><span class="line">socket.open()</span><br><span class="line"></span><br><span class="line">print(client.getTableNames())  # 获取当前所有的表名</span><br></pre></td></tr></table></figure><p>这段demo代码是从别人的博客抄过来的，原文地址<br><a href="https://blog.csdn.net/luanpeng825485697/article/details/81048468" target="_blank" rel="noopener">https://blog.csdn.net/luanpeng825485697/article/details/81048468</a></p><p>运行结束之后程序输出了一个空的列表<br><img src="http://120.24.1.93/blogimg/3/551_0.png" alt="551_0.png"></p><p>进入hbase shell，用Hbase的语句创建一个表</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hbase shell</span><br><span class="line">hbase(main):002:0&gt; create &apos;student&apos;,&apos;Sname&apos;,&apos;Ssex&apos;,&apos;Sage&apos;,&apos;Sdept&apos;,&apos;course&apos;</span><br></pre></td></tr></table></figure><p>再运行一遍python代码可以观察得出，能成功新创建的表名了</p><p><img src="http://120.24.1.93/blogimg/3/553_0.png" alt="553_0.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大数据 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hbase </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>对几个微信公众号2018年到现在所发表爬虫文章的简单整理</title>
       <link href="/2019/02/10/0002/"/>
       <url>/2019/02/10/0002/</url>
@@ -40,18 +63,18 @@
   
     
     <entry>
-      <title>推荐链接</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
+      <title>标签云</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
     </entry>
     
     <entry>
-      <title>标签云</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>推荐链接</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       

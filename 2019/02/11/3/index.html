@@ -46,7 +46,7 @@
     
     <title>
         
-            推荐链接 | 
+            安装thrift并使用python3驱动Hbase | 
         
         在尧山修仙
     </title>
@@ -57,7 +57,7 @@
 
     <meta name="format-detection" content="telephone=no">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",Hbase">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -218,7 +218,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="在尧山修仙">
-    <meta name="msapplication-starturl" content="http://yoursite.com/links/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2019/02/11/3/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="在尧山修仙">
@@ -233,13 +233,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/links/">
+    <meta property="og:url" content="http://yoursite.com/2019/02/11/3/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="推荐链接 | 在尧山修仙">
+    <meta property="og:title" content="安装thrift并使用python3驱动Hbase | 在尧山修仙">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
-    
+    <meta property="og:article:tag" content="Hbase"> 
 
+    
+        <meta property="article:published_time" content="Mon Feb 11 2019 14:50:59 GMT+0800">
+        <meta property="article:modified_time" content="Mon Feb 11 2019 14:59:05 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -247,13 +250,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/links/index.html">
+        <link rel="canonical" href="http://yoursite.com/2019/02/11/3/index.html">
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2019/02/11/3/index.html",
+    "headline": "安装thrift并使用python3驱动Hbase",
+    "datePublished": "Mon Feb 11 2019 14:50:59 GMT+0800",
+    "dateModified": "Mon Feb 11 2019 14:59:05 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "huangqi",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "在尧山修仙",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Hbase",
+    "description": "",
+}
+</script>
 
 
     
@@ -289,125 +322,285 @@
 
                     <!-- Post TOC -->
 
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前提条件"><span class="post-toc-number">2.</span> <span class="post-toc-text">前提条件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装依赖"><span class="post-toc-number">3.</span> <span class="post-toc-text">安装依赖</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编译安装软件"><span class="post-toc-number">4.</span> <span class="post-toc-text">编译安装软件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#测试"><span class="post-toc-number">5.</span> <span class="post-toc-text">测试</span></a></li></ol>
+    </ul>
+    
+
+
+
 
 <!-- Layouts -->
 
-    <!-- Single Links Page -->
-    <style>
-    .md-links {
-        min-height: calc(100% - 120px - 5pc - 6em);
-        text-align: center;
-        overflow: auto;
-        padding: 0;
-        margin: 0 auto;
-        max-width: 320px;
-    }
+    <!-- Post Module -->
+    <div class="material-post_container">
 
-    @media screen and (min-width: 680px) {
-        .md-links {
-            max-width: 640px;
-        }
-    }
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
 
-    @media screen and (min-width: 1000px) {
-        .md-links {
-            max-width: 960px;
-        }
-    }
-
-    @media screen and (min-width: 1320px) {
-        .md-links {
-            max-width: 1280px;
-        }
-    }
-
-    @media screen and (min-width: 1640px) {
-        .md-links {
-            max-width: 1600px;
-        }
-    }
-
-    @media screen and (max-width: 480px) {
-        .md-links {
-            min-height: calc(100% - 200px - 5pc - 6em);
-            margin-top: 6em;
-        }
-    }
-
-    .md-links-item {
-        background: #fff;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
-        height: 72px;
-        line-height: 15px;
-        margin: 20px 10px;
-        padding: 0px 0px;
-        transition: box-shadow 0.25s;
-    }
-
-    .md-links a {
-        color: #333;
-        text-decoration: none;
-    }
-
-    .md-links li {
-        width: 300px;
-        float: left;
-        list-style: none;
-    }
-
-    .md-links-item img {
-        float: left;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 11px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
-    }
-
-    .md-links-item:hover {
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .md-links-item a:hover{
-        cursor: pointer;
-    }
-
-    .md-links-title {
-        font-size: 20px;
-        line-height: 50px;
-    }
-
-    #scheme-Paradox .mdl-mini-footer{
-        clear: left;
-    }
-    #bottom{
-        position: relative;
-    }
-</style>
-
-<ul class="md-links">
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
-            <li class="md-links-item">
-                <a href="http://www.baidu.com" title="百度" target="_blank">
-                    <img src="http://www.baidu.com/img/baidu_jgylogo3.gif" alt="百度" height="72px">
-                    <span class="md-links-title">百度</span><br>
-                    <span>有疑问请去问百度</span>
-                </a>
-            </li>
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
         
+    
+            <p class="article-headline-p">
+                安装thrift并使用python3驱动Hbase
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar">
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>huangqi</strong>
+        <span>2月 11, 2019</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACaElEQVR42u3aQW7DMAwEwPz/0+0D2ihLUpaNYHwKDCfm6CApK75+vvp64eHh4eHh4eHhPYz3iq+/z6/vvH39m+/+/Va1Njw8PLyTvA9TbVDQ+vO70t9herXh4eHhneclpU9KTMqd14aHh4f3NF7hNcU7296Lh4eH9zBedfu7Dg4uGVY8PDy8g7z8D/+6xHUMUYgVzmcteHh4eDGvegB28vMN53t4eHh4S171yqf+aijci3r/+QU8PDy8i3l5Q1XSFLX+5WqcUY198fDw8E7y9m58k+Wkt+Q0Y1w8PDy8rbz8+GodEORTeR6FJFtzPDw8vLt4CSy5P4f1mhjw8PDwTvKqG9nJ5rsK27Aw4OHh4V3Aqx5rVQ/JJnfyQzU8PDy8e3nV6bjXHFB9Jh90PDw8vHt5+VFWFZlHG0mLKh4eHt55Xr55zWPceUxcbVDAw8PDO8PLm6V2bYuToext5fHw8PDO83rNppNmgrzhoBB24OHh4R3n5chqM8Fk+SnEJXh4eHgX83qMaugweaZaDx4eHt7VvN7knkz0+bQ+CYvLWQseHh7emJfHr70S82HKt+kfBg4PDw/vCG8+Nfdi3PlShIeHh3eel0/Zu+KDpNGqFy7j4eHhneFNYtleS1bSiJAvXeWUGg8PD2/Mm0cDycZ60pBaHgg8PDy8I7xJM0G19GQgJg0EeHh4eCd5yWLQG5q9YUS56QoPDw/vVl75ZcFgrX8hb1bAw8PDez5v85H/ruM3PDw8vIO8ZDquTtN5RJvHx83OCDw8PLytvN4BWPUYrPe5GoLg4eHhXc37vgsPDw8PDw8PD+8B1y87f5unzAPw+QAAAABJRU5ErkJggg==">
     
 </ul>
 
-<script type="text/ls-javascript" id="page-links-script">
-    var adjustFooter = function() {
-        if( ($('#bottom').offset().top + $('#bottom').outerHeight() )<$(window).height() ) {
-            var footerBottom = $(window).height() - $('#bottom').outerHeight() - $('#bottom').offset().top;
-            $('#bottom').css('bottom', '-' + footerBottom + 'px');
-        }
-    };
-    $(document).ready(function() {
-        adjustFooter();
-    });
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Hbase/">Hbase</a>
+    </li></ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=安装thrift并使用python3驱动Hbase&url=http://yoursite.com/2019/02/11/3/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=在尧山修仙&title=安装thrift并使用python3驱动Hbase&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2019/02/11/3/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>做比赛的过程中需要用到python去驱动hadoop的那一些东西，要安装thrift。因为按照版本不同等等原因，按照网上别人博客的教程配置并不能成功。经过自己处理问题之后将我自己的安装过程记录下来，作为自己的笔记以及让队伍其他成员使用。</p>
+<p>这份博客可以有效解决网上比较常见的python3无法驱动hbase-thrift的问题（直接pip3 install hbase-thrift，就马上使用的话，在import的时候会爆出语法错误，因为python目录下site-packages/hbase/Hbase.py这个文件默认是用python2语法编写的，不兼容python3 ）。</p>
+<p>网上也有人上传了修改过的Hbase.py文件，但是要么就是收钱，要么就是链接失效，甚至千辛万苦弄到手往往还不能成功跑起来。</p>
+<p>我找到的解决方案就是自己编译安装thrift这个软件，然后用thrift在自己本机上重新生成一遍Hbase.py。这样做可以完美的在自己机子上用python3驱动Hbase。</p>
+<p>如果有不是很熟悉hadoop的新人看到我这篇文章的话，请注意，我自己安装的thrift和Hbase安装文件夹下面自带的thrift服务是不一样的。前者是用来给客户端生成映射文件，后者是用来开启网络服务的。可以简单的认为一个工作在客户端，一个工作在服务端。如果只需要使用python2的话，不需要前者也可以正常驱动Hbase。因为pip下载下来的映射文件本身就是正确的。</p>
+<h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><p>这里使用的是ubuntu16.04虚拟机，崭新的系统，除了安装hadoop、Hbase、Hive、mysql以外并未额外安装其他软件</p>
+<p>hadoop安装目录：/usr/local/hadoop</p>
+<p>Hbase安装目录：/usr/local/hbase</p>
+<p>Hbase源码包解压后的路径：/home/hadoop/Desktop/hbase-2.0.4</p>
+<p>虚拟机用户名：hadoop</p>
+<p>从官网download板块那里下载文件，我用的是0.12.0版本 <a href="http://thrift.apache.org" target="_blank" rel="noopener">apache thrift官网</a></p>
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><p>首先按照官网的最新文档进行依赖的安装，网上那些教程安装的东西不太一样，在编译0.12.0版本thrift的时候会报错说缺东西<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install automake bison flex g++ git libboost-all-dev libevent-dev libssl-dev libtool make pkg-config</span><br></pre></td></tr></table></figure></p>
+<p>因为需要设置python支持（废话，不设置的话，怎么用python驱动），如果不安装这些，在编译安装的时候会提示找不到python.h</p>
+<p>官网上说，如果要添加python支持，需要装上这些。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-all python-all-dev python-all-dbg</span><br></pre></td></tr></table></figure>
+<p>实际上在我的ubuntu上面，光是执行上面这条并不够，还要再加一句。否则还是会爆红，说找不到python.h</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install  python3.5-dev</span><br></pre></td></tr></table></figure>
+<p>如果已经装过python2和python3对应的pip，那么上面这两步似乎可以省略，会提示这些软件已经存在了</p>
+<p>安装完依赖之后主要检查一下这两个目录里面有没有 python.h这个文件（两个目录都要有）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls /usr/include/python2.7</span><br><span class="line">ls /usr/include/python3.5</span><br></pre></td></tr></table></figure></p>
+<h2 id="编译安装软件"><a href="#编译安装软件" class="headerlink" title="编译安装软件"></a>编译安装软件</h2><p>接下来是正常的软件编译安装过程，贴这个代码主要是让你们看看configure参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf thrift-0.12.0.tar.gz </span><br><span class="line"></span><br><span class="line">cd thrift-0.12.0/</span><br><span class="line"></span><br><span class="line">./configure --prefix=/usr/local/thrift --with-cpp --with-boost --with-python --without-csharp --with-java --without-erlang --without-perl --with-php --without-php_extension --without-ruby --without-haskell --without-go</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
+<p>正常情况下应该不会爆红的，如果编译或者安装的时候爆红，自行想办法处理</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>安装pip，并使用pip安装两个模块，其中最容易出问题的是hbase-thrift</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3-pip</span><br><span class="line">pip3 install thrift</span><br><span class="line">pip3 install hbase-thrift</span><br></pre></td></tr></table></figure>
+<p>解压hadoop的源码包<br>我是解压到了这个目录<br><img src="http://120.24.1.93/blogimg/3/547_0.png" alt="547_0.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Desktop/hbase-2.0.4/hbase-thrift/src/main/resources/org</span><br><span class="line">/apache/hadoop/hbase/thrift</span><br><span class="line"></span><br><span class="line">/usr/local/thrift/bin/thrift -gen py Hbase.thrift</span><br></pre></td></tr></table></figure>
+<p>会得到一个gen-py文件夹，里面有个文件夹叫hbase，用它去替换你pip3安装的那个hbase-thrift里面的hbase文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rm -r  /home/hadoop/.local/lib/python3.5/site-packages/hbase</span><br><span class="line"></span><br><span class="line">cp -r ~/Desktop/hbase-2.0.4/hbase-thrift/src/main/resources/</span><br><span class="line">org/apache/hadoop/hbase/thrift/gen-py/hbase /home/hadoop/.local/lib/python3.5/site-packages/</span><br></pre></td></tr></table></figure>
+<p>如下图所示，尝试导入一下这个库，import成功就没问题了<br><img src="http://120.24.1.93/blogimg/3/549_0.png" alt="549_0.png"></p>
+<p>尝试用python驱动一下看看，在这之前要先把hbase启动起来</p>
+<p>启动hadoop<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-all.sh</span><br></pre></td></tr></table></figure></p>
+<p>启动Hbase<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-hbase.sh</span><br></pre></td></tr></table></figure></p>
+<p>启动Hbase的thrift服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hbase-daemon.sh start thrift</span><br></pre></td></tr></table></figure></p>
+<p>上面这几个脚本我是添加过环境变量的，使用的时候不需要加路径，如果没添加环境变量，请自行根据安装目录补全路径来运行，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/hadoop/sbin/start-all.sh</span><br><span class="line">/usr/local/hbase/bin/start-hbase.sh</span><br><span class="line">/usr/local/hbase/bin/hbase-daemon.sh start thrift</span><br></pre></td></tr></table></figure>
+<p>所有服务都启动完成之后，编写一段python代码，运行它</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">from thrift.transport import TSocket,TTransport</span><br><span class="line">from thrift.protocol import TBinaryProtocol</span><br><span class="line">from hbase import Hbase</span><br><span class="line"></span><br><span class="line"># thrift默认端口是9090</span><br><span class="line">socket = TSocket.TSocket(&apos;127.0.0.1&apos;,9090)</span><br><span class="line">socket.setTimeout(5000)</span><br><span class="line"></span><br><span class="line">transport = TTransport.TBufferedTransport(socket)</span><br><span class="line">protocol = TBinaryProtocol.TBinaryProtocol(transport)</span><br><span class="line"></span><br><span class="line">client = Hbase.Client(protocol)</span><br><span class="line">socket.open()</span><br><span class="line"></span><br><span class="line">print(client.getTableNames())  # 获取当前所有的表名</span><br></pre></td></tr></table></figure>
+<p>这段demo代码是从别人的博客抄过来的，原文地址<br><a href="https://blog.csdn.net/luanpeng825485697/article/details/81048468" target="_blank" rel="noopener">https://blog.csdn.net/luanpeng825485697/article/details/81048468</a></p>
+<p>运行结束之后程序输出了一个空的列表<br><img src="http://120.24.1.93/blogimg/3/551_0.png" alt="551_0.png"></p>
+<p>进入hbase shell，用Hbase的语句创建一个表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hbase shell</span><br><span class="line">hbase(main):002:0&gt; create &apos;student&apos;,&apos;Sname&apos;,&apos;Ssex&apos;,&apos;Sage&apos;,&apos;Sdept&apos;,&apos;course&apos;</span><br></pre></td></tr></table></figure>
+<p>再运行一遍python代码可以观察得出，能成功新创建的表名了</p>
+<p><img src="http://120.24.1.93/blogimg/3/553_0.png" alt="553_0.png"></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script>
+    var gitalk = new Gitalk({
+            clientID: '4623368ba1db3becf68d',
+            clientSecret: '7440aa1cc48b8a0aa70886d6d3151a5ec46b9e8c',
+            repo: 'hqZing.github.io',
+            owner: 'hqZing',
+            admin: ['hqZing'],
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
 </script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
 
+                
+            </div>
 
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/02/10/0002/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
 
 
 
@@ -593,6 +786,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 
