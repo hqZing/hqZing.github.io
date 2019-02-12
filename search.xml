@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>Hive与Hbase整合，共享表和数据</title>
+      <link href="/2019/02/12/5/"/>
+      <url>/2019/02/12/5/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>首先参考这两篇文章</p><p><a href="https://yq.aliyun.com/articles/32468" target="_blank" rel="noopener">https://yq.aliyun.com/articles/32468</a></p><p><a href="https://www.cnblogs.com/dongdone/p/5681295.html" target="_blank" rel="noopener">https://www.cnblogs.com/dongdone/p/5681295.html</a></p><p>上面提到可以使用Hive提供的jar包实现这两个框架的整合</p><h2 id="参数设置"><a href="#参数设置" class="headerlink" title="参数设置"></a>参数设置</h2><p>这里需要使用–auxpath 参数引入两个jar包：<br>hive-hbase-handler-x.x.x.jar和zookeeper-x.x.x.jar</p><p>每个教程里面写的jar包路径都是不一样的，所以我要自己动手的话，当然也是要找一下这些jar包的位置啦</p><p>我的Hive安装文件夹是 /usr/local/hive/</p><p>切到安装目录下面看看</p><pre><code class="sh">cd /usr/local/hive/ls lib | grep -E &quot;hbase-handler|zookeeper&quot;</code></pre><p>可以看到确实是有这两个jar文件的</p><p><img src="http://120.24.1.93/blogimg/5/569_1.png" alt=""></p><p>所以，在我的电脑上这两个文件的完整路径为</p><p>/usr/local/hive/lib/hive-hbase-handler-3.1.1.jar</p><p>/usr/local/hive/lib/zookeeper-3.4.6.jar</p><p>此外还需要-hiveconf参数输入两组配置数值：hbase.master和hbase.zookeeper.quorum</p><p>hbase.master这个参数，需要跟Hbase中hbase-site.xml里面的设置对应上，我这里是localhost:9000</p><p>hbase.zookeeper.quorum的值也是对应的，我这里是localhost</p><h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>所以，我这边的完整的启动命令就是</p><pre><code class="sh">hive --auxpath /usr/local/hive/lib/hive-hbase-handler-3.1.1.jar,/usr/local/hive/lib/zookeeper-3.4.6.jar -hiveconf hbase.master=localhost:9000 -hiveconf hbase.zookeeper.quorum=localhost</code></pre><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>上面的命令若没有错误，是可以启动成功的</p><p>现在就可以在Hive中建立一个Hbase的关联表了，使用<br>CREATE EXTERNAL TABLE可以建立一个外部表，设置好映射关系就可以直接把Hbase上面的表映射过来了。</p><p>然而此时并没有Hbase的表，那就先开启另一个终端，进入hbase shell，先在里面创建一个表，随便定一个表名叫student22吧，就是我们学数据库最熟悉的学生表。只有一个列族：info。列族里面只有一个列：name。</p><pre><code class="sql">create &#39;student22&#39;,&#39;info&#39;put &#39;student22&#39;,&#39;1001&#39;,&#39;info:name&#39;,&#39;zhangsan&#39;scan &#39;student22&#39;</code></pre><p><img src="http://120.24.1.93/blogimg/5/573_1.png" alt=""></p><p>这样就有了一个表，表里面有了一条数据</p><p>接下来就回到Hive的命令行里面创建一个表了</p><pre><code class="sql">CREATE EXTERNAL TABLE student44(id string, name string)STORED BY &#39;org.apache.hadoop.hive.hbase.HBaseStorageHandler&#39; WITH SERDEPROPERTIES (&quot;hbase.columns.mapping&quot; = &quot;:key,info:name&quot;) TBLPROPERTIES(&quot;hbase.table.name&quot; = &quot;student22&quot;);</code></pre><p><img src="http://120.24.1.93/blogimg/5/575_1.png" alt=""></p><p>这时候，Hive中的student44这个表就跟Hbase中的student22这个表对应上了，其中id这个字段映射的是student22的行号，name这个字段映射的是info列族里面的name这个列。在Hive的命令行里面查询一条语句看看</p><pre><code class="sql">select * from student44</code></pre><p><img src="http://120.24.1.93/blogimg/5/577_1.png" alt=""></p><p>可以发现成功读取到了Hbase的数据。</p><p>再去Hbase里面添加一条新数据，看看从Hive能不能访问到。</p><p><img src="http://120.24.1.93/blogimg/5/579_1.png" alt=""></p><p><img src="http://120.24.1.93/blogimg/5/581_1.png" alt=""></p><p>完全没问题。</p><h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>上面已经完成了大部分人想要的效果，然而我自己的这个Hive是用python通过hiveserver2来操作的。那么我想尝试一下通过hiveserver2进行的操作是否也是同步的呢？</p><p>首先还是准备一段python代码，注意这里，数据库名称是default。因为之前我们创建student44这个表之前并没有指定use哪个数据库，所以这个表是被归到default这个数据库中的。</p><pre><code class="python">from pyhive import hiveconn = hive.Connection(host=&#39;127.0.0.1&#39;, port=10000,  database=&#39;default&#39; ,username=&#39;hadoop&#39;)cursor=conn.cursor()cursor.execute(&#39;select * from student44&#39;)for result in cursor.fetchall():     print(result)conn.close()</code></pre><p>然后启动hiveserver2，这里为了稳妥一些，没有使用快捷启动，而是使用了加参数的启动方式</p><pre><code class="sh">hive --auxpath /usr/local/hive/lib/hive-hbase-handler-3.1.1.jar,/usr/local/hive/lib/zookeeper-3.4.6.jar -hiveconf hbase.master=localhost:9000 -hiveconf hbase.zookeeper.quorum=localhost --service hiveserver2</code></pre><p>运行成功，没有问题。<br><img src="http://120.24.1.93/blogimg/5/600_1.png" alt=""></p><p>关掉已经打开的hive服务，尝试用快速启动</p><pre><code class="sh">hiveserver2</code></pre><p>再运行一遍python程序，结果也是可以出来的，截图就不重复了，跟上面这张截图一样。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大数据 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hives </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>使用python3通过pyhive操作Hive</title>
       <link href="/2019/02/11/4/"/>
       <url>/2019/02/11/4/</url>
@@ -95,18 +118,18 @@
     </entry>
     
     <entry>
-      <title>标签云</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>时间轴</title>
+      <link href="/timeline/index.html"/>
+      <url>/timeline/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
     </entry>
     
     <entry>
-      <title>时间轴</title>
-      <link href="/timeline/index.html"/>
-      <url>/timeline/index.html</url>
+      <title>标签云</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
