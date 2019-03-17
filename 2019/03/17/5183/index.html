@@ -46,7 +46,7 @@
     
     <title>
         
-            使用python3通过pyhive操作Hive | 
+            让自己程序更好用的小技巧（一）使用配置文件替代手动输入参数 | 
         
         在尧山修仙
     </title>
@@ -57,7 +57,7 @@
 
     <meta name="format-detection" content="telephone=no">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content=",Hive">
+    <meta name="keywords" content="">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -223,7 +223,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="在尧山修仙">
-    <meta name="msapplication-starturl" content="http://yoursite.com/2019/02/11/4/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2019/03/17/5183/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="在尧山修仙">
@@ -238,16 +238,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/2019/02/11/4/">
+    <meta property="og:url" content="http://yoursite.com/2019/03/17/5183/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="使用python3通过pyhive操作Hive | 在尧山修仙">
+    <meta property="og:title" content="让自己程序更好用的小技巧（一）使用配置文件替代手动输入参数 | 在尧山修仙">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
-    <meta property="og:article:tag" content="Hive"> 
+    
 
     
-        <meta property="article:published_time" content="Mon Feb 11 2019 21:05:18 GMT+0800">
-        <meta property="article:modified_time" content="Mon Feb 11 2019 21:09:38 GMT+0800">
+        <meta property="article:published_time" content="Sun Mar 17 2019 19:30:31 GMT+0800">
+        <meta property="article:modified_time" content="Sun Mar 17 2019 19:30:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -255,7 +255,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2019/02/11/4/index.html">
+        <link rel="canonical" href="http://yoursite.com/2019/03/17/5183/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -267,10 +267,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2019/02/11/4/index.html",
-    "headline": "使用python3通过pyhive操作Hive",
-    "datePublished": "Mon Feb 11 2019 21:05:18 GMT+0800",
-    "dateModified": "Mon Feb 11 2019 21:09:38 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2019/03/17/5183/index.html",
+    "headline": "让自己程序更好用的小技巧（一）使用配置文件替代手动输入参数",
+    "datePublished": "Sun Mar 17 2019 19:30:31 GMT+0800",
+    "dateModified": "Sun Mar 17 2019 19:30:55 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "huangqi",
@@ -288,7 +288,7 @@
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",Hive",
+    "keywords": "",
     "description": "",
 }
 </script>
@@ -353,7 +353,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开发环境"><span class="post-toc-number">2.</span> <span class="post-toc-text">开发环境</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装库和依赖"><span class="post-toc-number">3.</span> <span class="post-toc-text">安装库和依赖</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#启动服务"><span class="post-toc-number">4.</span> <span class="post-toc-text">启动服务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改配置文件"><span class="post-toc-number">5.</span> <span class="post-toc-text">修改配置文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编程测试"><span class="post-toc-number">6.</span> <span class="post-toc-text">编程测试</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#conf格式"><span class="post-toc-number">2.</span> <span class="post-toc-text">.conf格式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#xml格式"><span class="post-toc-number">3.</span> <span class="post-toc-text">.xml格式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#json格式"><span class="post-toc-number">4.</span> <span class="post-toc-text">.json格式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#实战"><span class="post-toc-number">5.</span> <span class="post-toc-text">实战</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考链接"><span class="post-toc-number">6.</span> <span class="post-toc-text">参考链接</span></a></li></ol>
     </ul>
     
 
@@ -385,7 +385,7 @@
         
     
             <p class="article-headline-p">
-                使用python3通过pyhive操作Hive
+                让自己程序更好用的小技巧（一）使用配置文件替代手动输入参数
             </p>
         </div>
 
@@ -404,7 +404,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>huangqi</strong>
-        <span>2月 11, 2019</span>
+        <span>3月 17, 2019</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -426,22 +426,13 @@
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
     <li class="mdl-menu__item">在其它设备中阅读本文章</li>
     
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACYklEQVR42u3aQY6EMAwEwPn/p3cfMALaNgloVJzQLgypHJKo7c/fT18fPDw8PDw8PDy8l/E+8fX9/PlfDj9/8O73W9Wx4eHh4e3kXSy1wYDO74+GfoTpjQ0PDw9vPy8ZejLohB0djntjw8PDw3sZ7/w4myz9ydfx8PDwfomXH5rz6ZhMKx4eHt6zvHyJzweXH6OTjWR51oKHh4cX86oFsJ33D9T38PDw8E555ZamOKLND8HVzeBihHh4eHiLeXlDVRJJVP+b/0KhKQEPDw9vMa932O0FtcnvTFoT8PDw8PbwekWpSaksj0J6MTEeHh7eU7xqUeou2KSJAQ8PD28Pr7pJzA/iOeyGjQEPDw9vMa9XuJoHsnnpKwo+8PDw8LbwJqFDrzmg+kze/IqHh4e3k5cfoHuR7uSwnmwJeHh4eDt5yY/Ol+wcVm3/wsPDw9vPy8tavQW92qYwmVY8PDy8nbxqI+n5Yl3FT4pqeHh4ePt5vei2ej/ZfgrNXnh4eHiLefNjbhI6TJ6pBh94eHh4e3i9zaDallqNLZrNW3h4eHiLeZPi0yRKSK5eGwEeHh7eHl4ezlabAyYRbTMsxsPDw1vMqy7ZSTmqN8T863h4eHjP8nrLffLJvBGhGitfPImHh4e3mDeJBuaFtDwaLkwEHh4e3hZeHiv0ilXVg3U+hmbTFR4eHt5NvElzVYK/K4y4mAg8PDy8l/F6R+G8PWuyReHh4eG9n1dd6JPGgt67eHh4eE/x8vapfJmubh7z+BgPDw9vD29SAOtFuvl9Pt14eHh4e3i/d+Hh4eHh4eHh4b3g+geqAQw3xZd+PQAAAABJRU5ErkJggg==">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACZklEQVR42u3aQY4CMQwEQP7/6d0r0i7QtpMwoJoTQjCk5pCYtm8/X33d8PDw8PDw8PDwLsa7xdc/N/rz/qPP379T/VZ1bXh4eHhneC+22hYvf0D5/aM14OHh4R3kPVrQ82390ULzOye/lawNDw8P71N4yfHwfEPPfxcPDw/vc3mTqKIaUuDh4eFdmZf84U8K4lUb/RuyFjw8PLyYlzeZzr8+2t/Dw8PDC3jlkaakqA0GCPKtfzR0hYeHh7eBl2/EeZHdK68n68HDw8M7yauOOuU/U73/85gjD5Hx8PDwdvN67a59Y1i9VhkeHh7edXi9KCGPKpLDoDyygIeHh3ecN1nuPAKuHiF4eHh453k5phrF5ht9rz22IGvBw8PDG/DyIdRq8JqQeiOtUUmNh4eHt42XxwF5gyoPI3qPslxS4+Hh4S3tEM035WoI2yvlo1YZHh4e3hFe73aFEdJBgy0fgcXDw8M7w0si1Hk8kZfIW/4x4OHh4W34t5435hPGqpAijzDw8PDwTvJWbeu92CJviRUGtvDw8PA28+bLmjf7q4MILw4YPDw8vCO8PGDNQ4RkoGpVhIGHh4f3Ll41FMgDi2pjLDl+ygcDHh4e3gZetXk/j3eTYr36oPHw8PB286pXHknk350/ODw8PLyTvN6mXA0O9oUX5ckIPDw8vEW8+YhVdYvvPcrmwYCHh4e3jZfHps2mflB853g8PDy8T+RVPzlnRIU7Hh4e3uV5SYE+CXnzGAIPDw/vPC8fn+odFWtHCvDw8PDey5sUuL3SeRJhvDhg8PDw8Dbzvu/Cw8PDw8PDw8O7wPULNjWvW6qwOOIAAAAASUVORK5CYII=">
     
 </ul>
 
     
 
     <!-- Tags (bookmark) -->
-    
-    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">bookmark</i>
-        <span class="visuallyhidden">bookmark</span>
-    </button>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
-        <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Hive/">Hive</a>
-    </li></ul>
     
 
     <!-- Share -->
@@ -457,7 +448,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=使用python3通过pyhive操作Hive&url=http://yoursite.com/2019/02/11/4/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=让自己程序更好用的小技巧（一）使用配置文件替代手动输入参数&url=http://yoursite.com/2019/03/17/5183/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -478,7 +469,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=在尧山修仙&title=使用python3通过pyhive操作Hive&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2019/02/11/4/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=在尧山修仙&title=让自己程序更好用的小技巧（一）使用配置文件替代手动输入参数&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2019/03/17/5183/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -497,162 +488,203 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><div style="display: none"><br>在某场比赛的作品中，需要用python操作Hive数据仓库，控制其执行一些查询语句并将其查询结果存入mysql中。也就是同时使用python驱动两款数据库，HiveSQL语句承担数据分析的功能，mysql则用来存储分析出来的结果。因为分析结果只是一些简单的报表类型数据，数据量级很小，用普通的关系型数据库存储是比较合理的，若是<br></div>
-
-<p>某个项目需要python操作Hive数据仓库，对比了网上的三种方案（pyhs2、pyhive、impyla），其中pyhs2已经不再维护，剩下两款都不错，随便挑选了其中一款。就决定用pyhive实现了。</p>
-<h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><p>本人使用的开发环境：</p>
-<table>
-<thead>
-<tr>
-<th>开发环境</th>
-<th>版本</th>
-<th>安装位置</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>操作系统</td>
-<td>ubuntu 16.04</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>python</td>
-<td>python 3.5</td>
-<td>系统自带</td>
-<td></td>
-</tr>
-<tr>
-<td>Hive</td>
-<td>3.1.1</td>
-<td>/usr/local/hive/</td>
-<td></td>
-</tr>
-<tr>
-<td>hadoop</td>
-<td>2.7.7</td>
-<td>/usr/local/hadoop/</td>
-<td>伪分布式</td>
-</tr>
-</tbody>
-</table>
-<h2 id="安装库和依赖"><a href="#安装库和依赖" class="headerlink" title="安装库和依赖"></a>安装库和依赖</h2><p>要使用pyhive，首先要安装一些依赖</p>
-<pre><code class="sh">pip3 install sasl
-pip3 install thrift
-pip3 install thrift-sasl
-pip3 install PyHive
-</code></pre>
-<p>安装sasl容易失败，我第一次安装的时候也是出来了奇奇怪怪的报错提示，按照别人博客上面提的解决方法，去<a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#sasl" target="_blank" rel="noopener">某个网站</a> 寻找下载wheel包，但是发现上面提供的是win32/64的安装包，拷到虚拟机安装会提示平台不匹配</p>
-<p>最终进到了<a href="https://pypi.org/project/sasl/0.1.3/#description" target="_blank" rel="noopener">sasl的官网</a>，上面提到了需要安装一些依赖</p>
-<pre><code class="sh">apt-get install python-dev libsasl2-dev gcc
-</code></pre>
-<p>装完了上面这些东西之后，再安装sasl就一次成功了</p>
-<pre><code class="sh">pip3 install sasl --user
-pip3 install thrift-sasl --user
-</code></pre>
-<p>需要安装的东西也就这点了，不需要编译安装任何麻烦的东西</p>
-<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><p>装完可以连接hive的库之后，首先要启动hadoop</p>
-<pre><code class="sh">/usr/local/hadoop/sbin/start-all.sh
-</code></pre>
-<p>hadoop跑起来之后再启动Hive的thrift服务</p>
-<pre><code class="sh"> $HIVE_HOME/bin/hiveserver2
-</code></pre>
-<p> 或者</p>
-<pre><code class="sh"> $HIVE_HOME/bin/hive --service hiveserver2
-</code></pre>
-<p> 上面两种方法都可以启动，然而我之前已经将将$HIVE_HOME/bin/加入PATH了，所以在我的虚拟机中是这么启动的</p>
-<pre><code class="sh">hiveserver2
-</code></pre>
-<p>启动了hiveserver2之后，我们可以通过10000端口去连接数据库进行操作，也可以通过访问端口10002在web页面查看Hive的一些基本信息。</p>
-<p><img src="http://120.24.1.93/blogimg/4/559_1.png" alt="559_1.png"></p>
-<p>能正常打开网页，说明服务启动是没有问题的。</p>
-<p>这个hiveserver2，启动要很久，如果暂时打不开可以等一两分钟。</p>
-<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>在编程之前，先修改一下hive和hadoop的配置文件</p>
-<pre><code class="sh">gedit /usr/local/hive/conf/hive-site.xml
-</code></pre>
-<p>将其修改成</p>
-<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
-&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;
-&lt;configuration&gt;
-  &lt;property&gt;
-    &lt;name&gt;javax.jdo.option.ConnectionURL&lt;/name&gt;
-    &lt;value&gt;jdbc:mysql://localhost:3306/hive?createDatabaseIfNotExist=true&lt;/value&gt;
-    &lt;description&gt;JDBC connect string for a JDBC metastore&lt;/description&gt;
-  &lt;/property&gt;
-  &lt;property&gt;
-    &lt;name&gt;javax.jdo.option.ConnectionDriverName&lt;/name&gt;
-    &lt;value&gt;com.mysql.jdbc.Driver&lt;/value&gt;
-    &lt;description&gt;Driver class name for a JDBC metastore&lt;/description&gt;
-  &lt;/property&gt;
-  &lt;property&gt;
-    &lt;name&gt;javax.jdo.option.ConnectionUserName&lt;/name&gt;
-    &lt;value&gt;hive&lt;/value&gt;
-    &lt;description&gt;username to use against metastore database&lt;/description&gt;
-  &lt;/property&gt;
-  &lt;property&gt;
-    &lt;name&gt;javax.jdo.option.ConnectionPassword&lt;/name&gt;
-    &lt;value&gt;hive&lt;/value&gt;
-    &lt;description&gt;password to use against metastore database&lt;/description&gt;
-  &lt;/property&gt;
-  &lt;property&gt;
-    &lt;name&gt;hadoop.proxyuser.hadoop.groups&lt;/name&gt;
-    &lt;value&gt;*&lt;/value&gt;
-    &lt;description&gt;&lt;/description&gt;
-   &lt;/property&gt;
-   &lt;property&gt;
-    &lt;name&gt;hadoop.proxyuser.hadoop.hosts&lt;/name&gt;
-    &lt;value&gt;*&lt;/value&gt;
-    &lt;description&gt;&lt;/description&gt;
-   &lt;/property&gt;
-&lt;/configuration&gt;
-</code></pre>
-<p>hadoop的core-site.xml也改一下</p>
-<pre><code class="sh">gedit /usr/local/hadoop/etc/hadoop/core-site.xml 
-</code></pre>
-<p>修改成</p>
-<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;
-&lt;configuration&gt;
-    &lt;property&gt;
-        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
-        &lt;value&gt;file:/usr/local/hadoop/tmp&lt;/value&gt;
-        &lt;description&gt;Abase for other temporary directories.&lt;/description&gt;
-    &lt;/property&gt;
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在我们开发程序的过程中，我们一个程序的变量初始值可能是要随着每次运行而改变的，比如我今天写了一个程序计算1+2的结果，明天想计算3+4的结果，那么要手动修改程序里面的变量改成3和4再重新编译运行输出结果吗？这是不现实的，作为程序的开发者，也许可以轻易地做到这点，但是程序的用户的绝对不会愿意去这么干的。所以一般我们会在程序运行的过程中让用户手动输入相加的两个数值，这样子这个程序就可以用在任意两个整数相加了，就可以“编写一次，重复使用”了。</p>
+<p>要让用户向程序中输入数据，通俗的说无非就那么几种做法：</p>
+<ol>
+<li>在运行程序的时候向main函数传参</li>
+<li>在程序运行的过程中使用输入语句从终端读取字符（在没有图形界面的情况下）</li>
+<li>通过图形界面进行数据输入操作（在拥有图形界面的情况下）</li>
+<li>从文件中读取数据</li>
+<li>通过网络通信得到数据</li>
+</ol>
+<p>图形界面一般是用户最喜爱的操作方式，然而在以下情况下，图形界面并不是一个好的选择：</p>
+<ol>
+<li>程序的运行环境没有图形界面，</li>
+<li>编程语言本身极难开发图形界面应用程序</li>
+<li>程序的核心功能不在于界面，没有编写图形界面的必要</li>
+<li>编写图形界面的时间成本过高，无法接受如此庞大的时间支出</li>
+<li>每次运行需要录入的数据过多，手动在图形界面中输入非常浪费时间</li>
+</ol>
+<p>如果符合以上其中一个要求，又希望能向程序中输入自定义的变量，且又希望程序的运行过程能更好的减少人工干预。那么做法1和做法4是最合理的。在linux中也确实是这么做的。linux使用者大多都是工作在“黑窗口”下，而为了程序启动时高效地迅速输入各变量的初始值，linux程序一般会提供向main函数传参和读取配置文件这两种方案。</p>
+<p>这两种方案各有优劣吧，毕竟两者都能沿用至今，肯定是都有自己的好处。在这里我仅讨论其中一种情况。如果程序的自定义初始化参数过多，向main函数传参的启动方式就会变得十分难用，参数列表可能会很长。用户可能也难以记住每个参数的意义，下一次启动时也需要再重复输入参数，参数无法保存。所以这里主要讨论常见的几种配置文件的语法格式以及对我们平常coding的帮助。</p>
+<p>常见的配置文件格式有：</p>
+<ul>
+<li>.conf</li>
+<li>.xml</li>
+<li>.json</li>
+</ul>
+<h1 id="conf格式"><a href="#conf格式" class="headerlink" title=".conf格式"></a>.conf格式</h1><p>严格来说这个可能不算一种格式，因为它不像xml或json那样有严格的语法定义。甚至有时候用这个后缀名就仅仅只是为了向用户说明这个是一个配置文件而已。所以就没有特别明确的编写规则了，主要还是由程序本身决定如何解析这个文件，程序开发者自己确定解析规则之后再跟用户约定书写方法。</p>
+<p>在linux中以这个后缀作为配置文件的软件非常普遍，包括不少系统配置文件也是使用这个后缀名。对于<strong>系统中</strong>的conf文件，解析方式还是比较通用的，我们能从其中总结出大概的语法（只能是大概，具体配置方式一定要看该文件官方给出的书写方式）。即使是不以此后缀命名的系统配置文件，也大多遵从这个书写方法。</p>
+<p>而有些<strong>第三方的软件</strong>则在系统conf文件约定俗成的书写方法的基础上增加了自己的解析规则，这就使conf文件看上去格式更加花样众多了。具体的配置方法也只能必须按照软件官方规定的书写方法进行配置。</p>
+<p>下面先介绍所谓的“基本写法”吧，写法很简单：</p>
+<ol>
+<li>在行首以#号开头则视为注释，该行无效</li>
+<li>对于有效的行，以一个或多个空格分隔，“关键字”写在前，参数写在后，若有多个参数则分别在后面写上，参数之间当然也要分隔。可以认为每一行就是个一对一或者一对多的键值对</li>
+</ol>
+<p>下面截图举例可能经常见到的一些conf文件：<br>（这里只关心书写方法，不深究配置项的具体功能，这不是本文讨论范围）</p>
+<p><strong>/etc/resolv.conf</strong><br>这里头两行就是注释（甚至vim编辑器已经帮我们做了语法着色了）。下面4行是4个配置项，前面是关键字，而后空格分隔，紧跟着就是参数。<br><img src="http://120.24.1.93/blogimg/5183/751_1.png" alt=""></p>
+<p><strong>/etc/hosts</strong><br>这个文件虽然无后缀名，但也遵循conf“基本写法”<br><img src="http://120.24.1.93/blogimg/5183/747_1.png" alt=""></p>
+<p><strong>/etc/network/interfaces</strong><br>这是用来设置网卡接口ip的文件，也遵循conf的“基本写法”<br><img src="http://120.24.1.93/blogimg/5183/749_1.png" alt=""></p>
+<p><strong>redis.conf</strong><br>redis是第三方软件，如果有需要用到的话。使用过程中会接触到这个配置文件，它的书写格式也很规规矩矩<br><img src="http://120.24.1.93/blogimg/5183/753_1.png" alt=""></p>
+<p><strong>nginx.conf</strong><br>nginx的配置文件，这是个比较常用的软件。他的配置文件写法就比较奇怪，每一个配置项的末尾都以分号结束，而且还包含了嵌套结构。以至于vim甚至无法对其进行语法着色了。像这种配置文件就不是很通用，你只能按照nginx定好的规则来写，并且该规则也只适用于这款软件的配置。</p>
+<p><img src="http://120.24.1.93/blogimg/5183/759_1.png" alt=""></p>
+<p><strong>apache2.conf</strong><br>这个是apache服务的配置文件，同样是对“基本写法”进行了扩展的，他能将一组配置项用一个带尖括号的标签包围起来。<br><img src="http://120.24.1.93/blogimg/5183/761_1.png" alt=""></p>
+<h1 id="xml格式"><a href="#xml格式" class="headerlink" title=".xml格式"></a>.xml格式</h1><p>相对于前面那个格式而言，xml格式就很规范了，关于这个知识甚至还能单独出一本书。这里只能大概讨论几个主要特征，盘点它和其他格式的不同之处。</p>
+<p>首先贴出一份hadoop中core-site.xml的配置文件内容吧，大家不需要知道配置项的具体作用，我们主要看文件的格式。</p>
+<pre><code class="xml">&lt;configuration&gt;
     &lt;property&gt;
         &lt;name&gt;fs.defaultFS&lt;/name&gt;
-        &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;
+        &lt;value&gt;hdfs://127.0.0.1:9000&lt;/value&gt;
+        &lt;description&gt;127.0.0.1为服务器IP地址，其实也可以使用主机名&lt;/description&gt;
     &lt;/property&gt;
     &lt;property&gt;
-        &lt;name&gt;hadoop.proxyuser.hadoop.hosts&lt;/name&gt;
-        &lt;value&gt;*&lt;/value&gt;
+        &lt;name&gt;io.file.buffer.size&lt;/name&gt;
+        &lt;value&gt;131072&lt;/value&gt;
+        &lt;description&gt;该属性值单位为KB，131072KB即为默认的64M&lt;/description&gt;
     &lt;/property&gt;
-    &lt;property&gt;
-        &lt;name&gt;hadoop.proxyuser.hadoop.groups&lt;/name&gt;
-        &lt;value&gt;*&lt;/value&gt;
-    &lt;/property&gt;
-
+    &lt;!--- 这行是被注释的内容 --&gt;
 &lt;/configuration&gt;
 </code></pre>
-<p>配置文件这个问题卡了我很久，感谢这两篇文章的作者</p>
-<ol>
-<li><a href="https://blog.csdn.net/GK_kk/article/details/68924943" target="_blank" rel="noopener">hadoop is not allowed to impersonate hadoop</a></li>
-<li><a href="https://blog.csdn.net/mm_bit/article/details/52062488" target="_blank" rel="noopener">hbase错误：Org.apache.hadoop.ipc.RemoteException:User:client is not allowed to impersonate root</a></li>
-</ol>
-<h2 id="编程测试"><a href="#编程测试" class="headerlink" title="编程测试"></a>编程测试</h2><p>接下来就可以写代码运行了，在运行代码之前记得重启一下虚拟机（之前修改过配置文件，重启刷新一下配置），开机后重新开启所需的服务</p>
-<pre><code class="python">from pyhive import hive
+<p>从这里可以看出，标签之间就是树形结构，如果学过html之类的标记语言，就会很熟悉了。各个配置项都单独放在一个property标签中，配置项的属性又分别放在name、value、description标签中。</p>
+<p>如果换作.conf格式，则<strong>有可能</strong>是这个样子</p>
+<pre><code class="conf">#127.0.0.1为服务器IP地址，其实也可以使用主机名
+fs.defaultFS hdfs://127.0.0.1:9000 
 
-conn = hive.Connection(host=&#39;127.0.0.1&#39;, port=10000,  database=&#39;hive&#39; ,username=&#39;hadoop&#39;)
-cursor=conn.cursor()
-cursor.execute(&#39;select * from stu&#39;)
-for result in cursor.fetchall():
-     print(result)
-conn.close()
+#该属性值单位为KB，131072KB即为默认的64M
+io.file.buffer.size 131072
 </code></pre>
-<p>这里面的stu这个表是我之前导入进去的，现在尝试读取一下这个表的内容</p>
-<p><img src="http://120.24.1.93/blogimg/4/561_1.png" alt="561_1.png"></p>
-<p><img src="http://120.24.1.93/blogimg/4/563_1.png" alt="563_1.png"></p>
-<p>代码查询的结果与命令行查询的结果一致，没有什么问题。</p>
+<p>如果换作json格式，则<strong>有可能</strong>是这个样子</p>
+<pre><code class="json">{
+    &quot;property&quot;: [
+        {
+            &quot;name&quot;: &quot;fs.defaultFS&quot;,
+            &quot;value&quot;: &quot;hdfs://127.0.0.1:9000&quot;,
+            &quot;description&quot;:  &quot;127.0.0.1为服务器IP地址，其实也可以使用主机名&quot;
+        },
+        {
+            &quot;name&quot;: &quot;io.file.buffer.size&quot;,
+            &quot;value&quot;: &quot;131072&quot;,
+            &quot;description&quot;: &quot;该属性值单位为KB，131072KB即为默认的64M&quot;
+        }
+    ]
+}
+</code></pre>
+<h1 id="json格式"><a href="#json格式" class="headerlink" title=".json格式"></a>.json格式</h1><p>全称“javascript对象表示法”，学过js的人应该都能看得懂，其实就是一个键值对和数组经过嵌套形成的一个js对象，将其序列化成文本之后就是我们的json格式。需要注意的是，json文件不存在注释，除了对象的信息之外，多余的字符会导致文件解析失败。如果确实需要注释，那么可以添加一个用不上的字段用来保存注释信息。</p>
+<p>比如下面这个就是某飞机客户端的配置文件，每次启动程序的时候程序就会读取这个文件，解析里面的配置值，装填到程序当中。如果没有这个配置文件，那我们每次启动就要手动输入这么多配置参数，会十分痛苦。第一次设置时，程序将参数保存在配置文件中，此后我们只需要鼠标双击打开客户端就可以愉快的使用了。</p>
+<pre><code class="json">{
+    &quot;configs&quot;: [{
+        &quot;server&quot;: &quot;66.66.66.66&quot;,
+        &quot;server_port&quot;: 6666,
+        &quot;password&quot;: &quot;1234&quot;,
+        &quot;method&quot;: &quot;rc4-md5&quot;,
+        &quot;plugin&quot;: &quot;&quot;,
+        &quot;plugin_opts&quot;: &quot;&quot;,
+        &quot;plugin_args&quot;: &quot;&quot;,
+        &quot;remarks&quot;: &quot;&quot;,
+        &quot;timeout&quot;: 5
+    }],
+    &quot;strategy&quot;: null,
+    &quot;index&quot;: 0,
+    &quot;global&quot;: true,
+    &quot;enabled&quot;: false,
+    &quot;shareOverLan&quot;: false,
+    &quot;isDefault&quot;: false,
+    &quot;localPort&quot;: 1080,
+    &quot;portableMode&quot;: false,
+    &quot;pacUrl&quot;: null,
+    &quot;useOnlinePac&quot;: false,
+    &quot;secureLocalPac&quot;: true,
+    &quot;availabilityStatistics&quot;: false,
+    &quot;autoCheckUpdate&quot;: true,
+    &quot;checkPreRelease&quot;: false,
+    &quot;isVerboseLogging&quot;: false,
+    &quot;logViewer&quot;: {
+        &quot;topMost&quot;: false,
+        &quot;wrapText&quot;: false,
+        &quot;toolbarShown&quot;: false,
+        &quot;Font&quot;: &quot;Consolas, 8pt&quot;,
+        &quot;BackgroundColor&quot;: &quot;Black&quot;,
+        &quot;TextColor&quot;: &quot;White&quot;
+    },
+    &quot;proxy&quot;: {
+        &quot;useProxy&quot;: false,
+        &quot;proxyType&quot;: 0,
+        &quot;proxyServer&quot;: &quot;&quot;,
+        &quot;proxyPort&quot;: 0,
+        &quot;proxyTimeout&quot;: 3
+    },
+    &quot;hotkey&quot;: {
+        &quot;SwitchSystemProxy&quot;: &quot;&quot;,
+        &quot;SwitchSystemProxyMode&quot;: &quot;&quot;,
+        &quot;SwitchAllowLan&quot;: &quot;&quot;,
+        &quot;ShowLogs&quot;: &quot;&quot;,
+        &quot;ServerMoveUp&quot;: &quot;&quot;,
+        &quot;ServerMoveDown&quot;: &quot;&quot;,
+        &quot;RegHotkeysAtStartup&quot;: false
+    }
+}
+</code></pre>
+<h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><p>某天下午，有同学叫我帮写一个QQ机器人<br><img src="http://120.24.1.93/blogimg/5183/763_1.png" alt=""></p>
+<p>既然是转发机器人，那么必定会涉及转发规则，监听来自谁的消息，转发给谁和谁，这些都是需要用户自己制定的规则。如何让同学很方便地编写这个规则表就是一个问题了，虽然同学也是学计算机的，但是人家并不懂python代码，总不可能让人家每次改动规则都要去改变一次源代码吧？</p>
+<p>这个时候，配置文件就派上用场了。（不要问我为什么不做图形界面，做图形界面消耗的时间比机器人的业务逻辑花费时间要多两倍以上，实在是提不起那个劲）</p>
+<p>首先是一个数组，数组里面每一个元素是一个转发规则，每个转发规则监听一个消息来源，因为单个来源可以对应多个去路，所以去路是一个数组，每个元素保存一个号码。</p>
+<pre><code class="json">{
+    [
+
+        {
+            &quot;来源&quot;: {
+                &quot;消息类型&quot;: &quot;group&quot;,
+                &quot;号码&quot;: 111111
+            },
+
+            &quot;去路&quot;: [
+
+                {
+                    &quot;消息类型&quot;: &quot;group&quot;,
+                    &quot;号码&quot;: 111111,
+                    &quot;显示来源&quot;: true,
+                    &quot;来源备注&quot;: &quot;复读来自测试群的消息：&quot;
+                },
+
+                {
+                    &quot;消息类型&quot;: &quot;private&quot;,
+                    &quot;号码&quot;: 222222,
+                    &quot;显示来源&quot;: true,
+                    &quot;来源备注&quot;: &quot;转发来自测试群的消息：&quot;
+                }
+
+            ]
+        },
+
+        {
+            &quot;来源&quot;: {
+                &quot;消息类型&quot;: &quot;private&quot;,
+                &quot;号码&quot;: 222222
+            },
+
+            &quot;去路&quot;: [
+
+                {
+                    &quot;消息类型&quot;: &quot;group&quot;,
+                    &quot;号码&quot;: 111111,
+                    &quot;显示来源&quot;: true,
+                    &quot;来源备注&quot;: &quot;转发来自大号的消息：\n&quot;
+                },
+
+                {
+                    &quot;消息类型&quot;: &quot;private&quot;,
+                    &quot;号码&quot;: 222222,
+                    &quot;显示来源&quot;: true,
+                    &quot;来源备注&quot;: &quot;复读来自大号的消息：\n&quot;
+                }
+            ]
+        }
+    ]
+}
+</code></pre>
+<p>事实证明这个做法还是比较可行的，使用过程中没遇到糟心的问题。</p>
+<p><img src="http://120.24.1.93/blogimg/5183/765_1.png" alt=""></p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://www.cnblogs.com/yinghun/p/6230436.html" target="_blank" rel="noopener">https://www.cnblogs.com/yinghun/p/6230436.html</a></p>
 
         
     
@@ -702,21 +734,13 @@ conn.close()
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2019/02/12/5/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2019/02/11/3/" id="post_nav-older" class="next-content">
+        <a href="/2019/02/12/5/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
