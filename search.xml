@@ -3,6 +3,23 @@
   
     
     <entry>
+      <title>python多进程/多线程模块总览</title>
+      <link href="/2019/05/24/pt_overview/"/>
+      <url>/2019/05/24/pt_overview/</url>
+      
+        <content type="html"><![CDATA[<p>占个坑，这篇文章用来阐述开启这个项目的动机，理一下这个项目的思路。顺便画一下python里面多线程/多进程模块依赖关系的图示</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 操作系统 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    <entry>
       <title>让自己程序更好用的小技巧（一）使用配置文件替代手动输入参数</title>
       <link href="/2019/03/17/5183/"/>
       <url>/2019/03/17/5183/</url>
@@ -120,6 +137,15 @@
   
     
     <entry>
+      <title>推荐链接</title>
+      <link href="/links/index.html"/>
+      <url>/links/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    <entry>
       <title>标签云</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
@@ -132,15 +158,6 @@
       <title>时间轴</title>
       <link href="/timeline/index.html"/>
       <url>/timeline/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    <entry>
-      <title>推荐链接</title>
-      <link href="/links/index.html"/>
-      <url>/links/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
